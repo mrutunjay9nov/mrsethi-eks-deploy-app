@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mrsethi-app
+  name: mrsethi-internal-lb
+  namespace: mrsethi-space
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: mrsethi-app
+status:
+  loadBalancer: {}
