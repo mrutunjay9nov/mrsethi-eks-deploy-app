@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mrsethi-app
+  name: mrsethi-app
+  namespace: mrsethi-space # name if the name soace
+spec:
+  replicas: 2 # by default one so modified
+  selector:
+    matchLabels:
+      app: mrsethi-app
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mrsethi-app
+    spec:
+      containers:
+      - image: mrsethi/mrsethi-app:v1   # image name from docker hub
+        name: mrsethi-app
+        ports:
+        - containerPort: 80
+        resources: {}
+        imagePullPolicy: always # add this line 
+status: {}
